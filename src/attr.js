@@ -4,7 +4,7 @@
         function getScriptOption() {
             // Get all script tags
             var scripts = document.getElementsByTagName('script');
-            var currentScript = scripts[scripts.length - 1]; // Current script is the last one
+            var currentScript = document.currentScript;
 
             // Read the 'data-option' attribute
             return currentScript.getAttribute('data-option');
