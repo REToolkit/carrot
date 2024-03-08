@@ -16,6 +16,11 @@ This should be added to all sites.
 ```
 
 ```html
+<!-- To insert the div with image and link -->
+<script src="https://raw.githubusercontent.com/REToolkit/carrot/main/dist/attr.min.js" data-option="div" defer></script>
+```
+
+```html
 <!-- To insert just the text link -->
 <script src="https://cdn.jsdelivr.net/gh/retoolkit/carrot/code/attr.min.js" data-option="link"></script>
 ```
