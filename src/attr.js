@@ -4,7 +4,7 @@ $(document).ready(function() {
     var responsiveDiv = $('<div/>', {
         css: {
             width: '100%', // Ensure the div takes the full width of its parent
-            maxWidth: '200px', // Maximum width of the div
+            maxWidth: '600px', // Maximum width of the div
             margin: '0 auto' // Center the div
         }
     });
@@ -13,6 +13,7 @@ $(document).ready(function() {
     var imageRow = $('<div/>', {
         css: {
             width: '100%', // Ensure the row takes the full width of its container
+            maxWidth: '200px', // Maximum width of the image
             marginBottom: '20px' // Space between the image row and the attribution link
         }
     }).appendTo(responsiveDiv);
