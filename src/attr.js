@@ -10,7 +10,7 @@
             return currentScript.getAttribute('data-option');
         }
 
-        const option = getScriptOption(); // 'div' or 'link'
+        const option = getScriptOption(); // 'logo' or 'link'
         const hrefText = 'REToolkit - SEO for Real Estate Investing';
         const baseURL = window.location.hostname;
         const baseHref = 'https://retoolkit.io/?utm_source=' + encodeURIComponent(baseURL);
@@ -89,7 +89,7 @@
         }
 
         // Decide which content to insert based on the 'data-option' attribute
-        if (option === 'div') {
+        if (option === 'logo') {
             createResponsiveDiv();
         } else if (option === 'link') {
             createAttributionLink();

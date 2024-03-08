@@ -12,7 +12,7 @@ This should be added to all sites.
 
 ```html
 <!-- To insert the div with image and link -->
-<script src="https://cdn.jsdelivr.net/gh/retoolkit/carrot/code/attr.min.js" data-option="div"></script>
+<script src="https://cdn.jsdelivr.net/gh/retoolkit/carrot/code/attr.min.js" data-option="logo"></script>
 ```
 
 ```html
