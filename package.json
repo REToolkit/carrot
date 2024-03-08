@@ -1,0 +1,22 @@
+{
+  "name": "carrot-code-by-retoolkit",
+  "version": "1.0.0",
+  "description": "",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run minify"
+    }
+  },
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "minify": "terser src/**/*.js -o dist --compress --mangle --keep-fnames --source-map --output dist/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "husky": "^9.0.11",
+    "terser": "^5.29.1"
+  }
+}
