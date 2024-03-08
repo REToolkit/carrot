@@ -6,7 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "minify": "terser-folder src/ -eo dist/ --compress --mangle --keep-fnames",
     "prepare": "husky",
-    "post-commit-task": "git diff --name-only | grep '\\.min\\.js$' && (git add . && git commit -m 'chore: auto-commit minified files') || echo 'No minified files to commit'"
+    "post-commit-task": "git diff --name-only | grep '\\.min\\.js$' && (git add . && git commit -m 'chore: auto-commit minified files') || echo 'No minified files to commit'",
+    "post-commit-task-versioning": "lastTag=$(git describe --tags $(git rev-list --tags --max-count=1)); IFS='.' read -ra ADDR <<< \"$lastTag\"; vNum=${ADDR[2]}; newVNum=$((vNum+1)); newTag=\"${ADDR[0]}.${ADDR[1]}.$newVNum\"; git tag $newTag; git push origin $newTag; echo \"New tag $newTag created and pushed\""
   },
   "type": "module",
   "keywords": [],
