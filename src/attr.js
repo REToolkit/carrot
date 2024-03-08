@@ -29,18 +29,34 @@
                 css: {
                     width: '100%',
                     maxWidth: '200px',
+                    marginTop: '20px',
                     marginBottom: '20px'
                 }
             }).appendTo(responsiveDiv);
+            
+            // Create the <a> element with the baseHref as the href attribute
+            var linkWrapper = $('<a/>', {
+                href: baseHref,
+                css: {
+                    // Any CSS you want to apply to the link
+                }
+            });
 
-            $('<img/>', {
+            // Create the <img> element
+            var imageElement = $('<img/>', {
                 src: 'https://global.divhunt.com/b6840b489b614157d3f82de68e8da0d9_10914.webp',
                 alt: hrefText,
                 css: {
                     width: '100%',
                     height: 'auto'
                 }
-            }).appendTo(imageRow);
+            });
+
+            // Append the <img> to the <a>
+            imageElement.appendTo(linkWrapper);
+
+            // Append the <a> (now containing the <img>) to the imageRow
+            linkWrapper.appendTo(imageRow);
 
             var linkRow = $('<div/>', {
                 css: {
