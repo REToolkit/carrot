@@ -2,8 +2,12 @@ name: Minify JavaScript
 
 on: [push]
 
+permissions:
+  contents: write
+
 jobs:
   minify:
+
     runs-on: ubuntu-latest
 
     steps:
@@ -30,4 +34,5 @@ jobs:
     - name: Commit minified files
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
+        token: ${{ secrets.RETOOLKIT_GITHUB_ACTIONS_TOKEN }}
         commit_message: Minify JavaScript files
