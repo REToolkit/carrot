@@ -11,6 +11,7 @@
         }
 
         const option = getScriptOption(); // 'logo' or 'link'
+        console.log('REToolkit Attribution Option:', option);
         const hrefText = 'REToolkit - SEO for Real Estate Investing';
         const baseURL = window.location.hostname;
         const baseHref = 'https://retoolkit.io/?utm_source=' + encodeURIComponent(baseURL);
