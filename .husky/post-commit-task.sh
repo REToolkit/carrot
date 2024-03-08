@@ -1,7 +1,6 @@
 #!/bin/sh
 
-# Check if the last commit only contains changes to .min.js files
-if git diff --name-only HEAD~1 HEAD | grep -vE '\.min\.js$' | grep -E '\.js$'; then
+if git diff HEAD~1 HEAD --name-only | grep -vE '\.min\.js$' | grep -E '\.js$'; then
     echo "JavaScript source files were modified. Proceeding with version bump..."
 else
     echo "Only .min.js files or no JavaScript files were modified. Skipping version bump."
