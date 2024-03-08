@@ -7,7 +7,8 @@
     "minify": "terser-folder src/ -eo dist/ --compress --mangle --keep-fnames",
     "prepare": "husky",
     "post-commit-task": "git diff --name-only | grep '\\.min\\.js$' && (git add . && git commit -m 'chore: auto-commit minified files') || echo 'No minified files to commit'",
-    "post-commit-version-bump": "bash .husky/post-commit-task.sh"
+    "post-commit-version-bump": "bash .husky/post-commit-task.sh",
+    "post-commit": "bash .husky/combined-post-commit.sh"  
   },
   "type": "module",
   "keywords": [],
