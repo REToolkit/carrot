@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "minify": "terser-folder src/ -eo src/ --compress --mangle --keep-fnames",
-    "prepare": "husky"
+    "prepare": "husky",
+    "post-commit-task": "git diff --name-only --cached | grep '\\.min\\.js$' && (git add . && git commit -m 'chore: auto-commit minified files') || echo 'No minified files to commit'"
   },
   "type": "module",
   "keywords": [],
