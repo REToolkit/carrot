@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    const hrefText = 'REToolkit - SEO for Real Estate Investing';
     // Create the responsive div container
     var responsiveDiv = $('<div/>', {
         css: {
@@ -19,7 +20,7 @@ $(document).ready(function() {
     // Create the responsive image
     $('<img/>', {
         src: 'https://global.divhunt.com/b6840b489b614157d3f82de68e8da0d9_10914.webp',
-        alt: 'REToolkit - SEO for Real Estate Investing',
+        alt: hrefText,
         css: {
             width: '100%', // Make the image responsive
             height: 'auto' // Maintain the aspect ratio of the image
@@ -37,7 +38,7 @@ $(document).ready(function() {
     var baseURL = window.location.hostname;
     $('<a/>', {
         href: 'https://retoolkit.io/?utm_source=' + encodeURIComponent(baseURL),
-        text: 'REToolkit - SEO for Real Estate Investing',
+        text: hrefText,
         css: {
             // textDecoration: 'none', // Optional: Remove the underline from the link
             // color: '#000', // Optional: Set the link color
