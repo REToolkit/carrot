@@ -1,1 +1,2 @@
-npm run post-commit-task
+pnpm run post-commit-task
+pnpm run post-commit-version-bump
