@@ -4,19 +4,23 @@
   "description": "",
   "husky": {
     "hooks": {
-      "pre-commit": "npm run minify"
+      "pre-commit": "pnpm run minify"
     }
   },
-  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "minify": "terser src/**/*.js -o dist --compress --mangle --keep-fnames --source-map --output dist/"
+    "minify": "terser-folder src/ -eo src/ --compress --mangle --keep-fnames"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "husky": "^9.0.11",
+    "terser-folder": "^2.0.0"
+  },
+  "devDependencies": {
+    "glob": "^10.3.10",
     "terser": "^5.29.1"
   }
 }
