@@ -2,14 +2,10 @@
   "name": "carrot-code-by-retoolkit",
   "version": "1.0.0",
   "description": "",
-  "husky": {
-    "hooks": {
-      "pre-commit": "pnpm run minify"
-    }
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "minify": "terser-folder src/ -eo src/ --compress --mangle --keep-fnames"
+    "minify": "terser-folder src/ -eo src/ --compress --mangle --keep-fnames",
+    "prepare": "husky"
   },
   "type": "module",
   "keywords": [],
