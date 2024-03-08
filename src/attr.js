@@ -2,9 +2,8 @@
     $(document).ready(function() {
         // Function to retrieve the script tag's custom attribute value
         function getScriptOption() {
-            // Get all script tags
-            var scripts = document.getElementsByTagName('script');
-            var currentScript = document.currentScript;
+            // Get the script tag
+            var currentScript = document.getElementById('io.retoolkit.attr');
 
             // Read the 'data-option' attribute
             return currentScript.getAttribute('data-option');
