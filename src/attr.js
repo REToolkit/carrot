@@ -29,8 +29,7 @@
                 css: {
                     width: '100%',
                     maxWidth: '200px',
-                    marginTop: '20px',
-                    marginBottom: '10px'
+                    marginTop: '20px'
                 }
             }).appendTo(responsiveDiv);
             
