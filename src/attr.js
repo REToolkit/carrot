@@ -1,19 +1,53 @@
 (function($) {
     $(document).ready(function() {
         // Function to retrieve the script tag's custom attribute value
-        function getScriptOption() {
-            // Get the script tag
+        function getScriptOptions() {
+            // Get the script tag using its unique ID
             var currentScript = document.getElementById('io.retoolkit.attr');
-
-            // Read the 'data-option' attribute
-            return currentScript.getAttribute('data-option');
+        
+            // Initialize an object to hold the options with some defaults
+            var options = { 
+                type: 'link',
+                hrefText: 'REToolkit - SEO for Real Estate Investing',
+                utm_source: "client",
+                utm_medium: "footer",
+                utm_campaign: "brand",
+            };
+        
+            try {
+                // Attempt to parse the 'data-option' attribute as JSON
+                var parsedOptions = JSON.parse(currentScript.getAttribute('data-option'));
+        
+                // Merge parsed options with defaults, prioritizing parsed values
+                options = { ...options, ...parsedOptions };
+        
+                // Append utm_content derived from window.location.hostname
+                options.utm_content = window.location.hostname;
+        
+                // Build the UTM parameters string
+                var utmParams = Object.keys(options).reduce((acc, key) => {
+                    if (key.startsWith('utm_')) {
+                        acc.push(`${key}=${encodeURIComponent(options[key])}`);
+                    }
+                    return acc;
+                }, []).join('&');
+        
+                // Append UTM parameters to the base URL
+                options.baseUrl = `https://retoolkit.io/?${utmParams}`;
+        
+            } catch(e) {
+                console.error('Error parsing JSON from data-option attribute', e);
+                // Even in case of error, utm_content is appended
+                options.utm_content = window.location.hostname;
+            }
+        
+            return options;
         }
+        
 
-        const option = getScriptOption(); // 'logo' or 'link'
-        console.log('REToolkit Attribution Option:', option);
-        const hrefText = 'REToolkit - SEO for Real Estate Investing';
-        const baseURL = window.location.hostname;
-        const baseHref = 'https://retoolkit.io/?utm_source=' + encodeURIComponent(baseURL);
+        const options = getScriptOptions(); // 'logo' or 'link'
+        console.log('REToolkit Attribution Option:', options.type);
+        
 
         // Function to create and append the responsive div with image and link
         function createResponsiveDiv() {
@@ -33,9 +67,9 @@
                 }
             }).appendTo(responsiveDiv);
             
-            // Create the <a> element with the baseHref as the href attribute
+            // Create the <a> element with the options.hrefText as the href attribute
             var linkWrapper = $('<a/>', {
-                href: baseHref,
+                href: options.baseUrl,
                 css: {
                     // Any CSS you want to apply to the link
                 }
@@ -44,7 +78,7 @@
             // Create the <img> element
             var imageElement = $('<img/>', {
                 src: 'https://global.divhunt.com/b6840b489b614157d3f82de68e8da0d9_10914.webp',
-                alt: hrefText,
+                alt: options.hrefText,
                 css: {
                     width: '100%',
                     height: 'auto'
@@ -64,8 +98,8 @@
             }).appendTo(responsiveDiv);
 
             $('<a/>', {
-                href: baseHref,
-                text: hrefText,
+                href: options.baseUrl,
+                text: options.hrefText,
                 css: {
                     fontSize: '0.75em',
                 }
@@ -81,17 +115,17 @@
             });
 
             var attributionLink = $('<a>', {
-                href: baseHref,
-                text: hrefText
+                href: options.baseUrl,
+                text: options.hrefText
             });
 
             $('footer .copy').append(attributionText).append(attributionLink);
         }
 
         // Decide which content to insert based on the 'data-option' attribute
-        if (option === 'logo') {
+        if (options.type === 'logo') {
             createResponsiveDiv();
-        } else if (option === 'link') {
+        } else if (options.type === 'link') {
             createAttributionLink();
         }
     });
