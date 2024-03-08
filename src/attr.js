@@ -4,7 +4,7 @@ $(document).ready(function() {
     var responsiveDiv = $('<div/>', {
         css: {
             width: '100%', // Ensure the div takes the full width of its parent
-            maxWidth: '600px', // Maximum width of the div
+            maxWidth: '200px', // Maximum width of the div
             margin: '0 auto' // Center the div
         }
     });
