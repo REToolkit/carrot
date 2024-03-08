@@ -66,7 +66,10 @@
 
             $('<a/>', {
                 href: baseHref,
-                text: hrefText
+                text: hrefText,
+                css: {
+                    fontSize: '0.75em',
+                }
             }).appendTo(linkRow);
 
             $('footer .disclaimer').append(responsiveDiv);
