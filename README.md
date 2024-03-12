@@ -14,11 +14,12 @@ This should be added to all sites.
 
 Options are passed in as a JSON object.
 
-- `"type": "link|logo"`
-- `"utm_source": "client"`
-- `"utm_medium": "footer"`
-- `"utm_campaign": "brand"`
-- `"utm_content": "referring_base_url"`
+- `"alignment": "left | center (default)"`
+- `"type": "logo | link (default)"`
+- `"utm_source": "client (default)"`
+- `"utm_medium": "footer (default)"`
+- `"utm_campaign": "brand (default)"`
+- `"utm_content": "[referring_base_url] (default)"`
 - `"utm_term": "keyword_used_in_link"` - generally only used with PAID ads
 
 ### Examples
